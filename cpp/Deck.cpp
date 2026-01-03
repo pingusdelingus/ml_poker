@@ -71,6 +71,8 @@ bool isEmpty(){
 
   }// end of constructor
 
+
+
 void riffle(){
     std::cout << "start of a riffle \n";
     int selectIndex = DECK_LENGTH / 2;

@@ -13,12 +13,21 @@ void finish_hand(){
 
 void blackjack(Deck * d)
 {
-    char usrChoice = 'a';
+  int playerValue = 0;
+  char usrChoice = 'a';
   std::cout << usr_choices[0] << ", " << usr_choices[1] << ", " << usr_choices[2] << "\n";
   std::cin >> usrChoice ;
 
-usrChoice = toupper(usrChoice);
+  Hand* player = new Hand();
+  Hand* house = new Hand();
 
+  player.getCard(Deck->deal());
+  house.getCard(Deck->deal());
+  player.getCard(Deck->deal());
+  house.getCard(Deck->deal());
+
+usrChoice = toupper(usrChoice);
+while (usrChoice != 'S' || playerValue <= 21)
   switch (usrChoice){
     case 'S':
     finish_hand();

@@ -8,8 +8,21 @@ class Hand{
 public:
   
   std::shared_ptr<Card>arr [MAX_HAND_SIZE];
+  int currIndex = 0;
   int length;
-  
+    
+void getCard(std::shared_ptr<Card> newCard)
+  {
+    if (arr[currIndex] == nullptr){
+      arr[currIndex] = std::move(newCard);
+      return;
+    } 
+    else{
+      std::cout << "theres a problem in getCard for " << this << " \n";
+    }
+      
+  }
+
   Hand(std::shared_ptr<Card>*  ptr, int len){
    
     // should check for length errors
