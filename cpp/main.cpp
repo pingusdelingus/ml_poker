@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include "./Card.cpp"
 #include "./Deck.cpp"
+#include "./Hand.cpp"
+
 
 Deck allocate_deck();
 
@@ -21,10 +23,10 @@ void blackjack(Deck * d)
   Hand* player = new Hand();
   Hand* house = new Hand();
 
-  player.getCard(Deck->deal());
-  house.getCard(Deck->deal());
-  player.getCard(Deck->deal());
-  house.getCard(Deck->deal());
+  player->getCard(d->deal());
+  house->getCard(d->deal());
+  player->getCard(d->deal());
+  house->getCard(d->deal());
 
 usrChoice = toupper(usrChoice);
 while (usrChoice != 'S' || playerValue <= 21)

@@ -1,12 +1,14 @@
 #include "./Card.cpp"
 #include <assert.h>
 #include <random>
+#include <memory>
+
 #define DECK_LENGTH 52
 #define RIFFLE_NUM 2
 
 
-std::random_device rd;
-std::mt19937 gen(rd());
+std::random_device random_device;
+std::mt19937 generator(random_device());
 
 class Deck
 {
@@ -84,8 +86,8 @@ void riffle(){
     int mid = selectIndex;
     for (int i = 0; i < mid; i++){
 
-  int choice_upper = upper(gen);
-  int choice_lower = lower(gen); 
+  int choice_upper = upper(generator);
+  int choice_lower = lower(generator); 
 
       swap(arr, choice_upper, choice_lower );
 
@@ -133,7 +135,7 @@ void cut ()
 {
   int lb = DECK_LENGTH / 3;
   std::uniform_int_distribution<> upper (lb,  2 * lb);
-int i = upper(gen);
+int i = upper(generator);
   slideArr(i);
 
 }// end of cut 

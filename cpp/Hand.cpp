@@ -1,5 +1,5 @@
 #include "./Card.cpp"
-
+#include <memory>
 #define MAX_HAND_SIZE 25
 
 
@@ -22,6 +22,15 @@ void getCard(std::shared_ptr<Card> newCard)
     }
       
   }
+
+  Hand(){
+  for (int i = 0; i < MAX_HAND_SIZE; i++){
+      arr[i] = nullptr;
+    }
+    currIndex = 0;
+    length = MAX_HAND_SIZE;
+  }// end of default constructor
+
 
   Hand(std::shared_ptr<Card>*  ptr, int len){
    
